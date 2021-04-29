@@ -38,14 +38,12 @@ $Rules-Gradient: radial-gradient(hsla(0, 0%, 0%, 0.1), hsla(0, 0%, 0%, 0.8));
 :root {
     text-transform: uppercase;
     color: $White-Text;
-
 }
 
 body {
     height: 100vh;
     width: auto;
     font-family: 'Barlow Semi Condensed', sans-serif;
-    // overflow: hidden;
     background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 }
 
