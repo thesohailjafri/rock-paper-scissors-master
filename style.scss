@@ -38,9 +38,12 @@ $Rules-Gradient: radial-gradient(hsla(0, 0%, 0%, 0.1), hsla(0, 0%, 0%, 0.8));
 :root {
     text-transform: uppercase;
     color: $White-Text;
+    overflow: hidden;
+
 }
 
 body {
+    width: 100vw;
     height: 100vh;
     width: auto;
     font-family: 'Barlow Semi Condensed', sans-serif;
@@ -53,6 +56,7 @@ body {
     height: auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 3rem;
     border: $Header-Outline solid 3px;
     border-radius: 20px;
@@ -63,7 +67,6 @@ body {
         flex-direction: column;
         font-size: 35px;
         font-weight: 700;
-
         line-height: 35px;
     }
 
@@ -93,7 +96,7 @@ body {
     width: 520px;
     height: 460px;
     margin: auto;
-    margin-top: 4rem;
+    margin-top: 5rem;
     display: grid;
     place-items: center;
     grid-template-columns: 1fr 1fr;
@@ -134,14 +137,10 @@ body {
 }
 
 .game-block-result {
-    position: absolute;
-    top: 300px;
-    left: 50%;
-    transform: translate(-50%);
 
     width: 1030px;
     height: 420px;
-
+    margin: 5rem auto 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100px 320px;
@@ -172,10 +171,12 @@ body {
             color: $Dark-Text;
             text-transform: uppercase;
             font-weight: 500;
-            letter-spacing: 2px
-        }
+            letter-spacing: 2px;
 
-        ;
+            &:hover {
+                color: red;
+            }
+        }
     }
 
     .user {
@@ -232,78 +233,8 @@ body {
 }
 
 .game-block {
-    position: absolute;
-    top: 300px;
-    left: 50%;
-    transform: translate(-50%);
-
-    width: 730px;
-    height: 420px;
-
     display: none;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px 320px;
-    grid-template-areas: "usertxt housetxt"
-        "usermove housemove";
-
-    .result {
-        display: none;
-    }
-
-    .user {
-        grid-area: usertxt;
-    }
-
-    .houset {
-        grid-area: housetxt;
-    }
-
-    .userm {
-        grid-area: usermove;
-    }
-
-    .housem {
-        grid-area: housemove;
-    }
-
-    .text {
-        font-size: 22px;
-        font-weight: 600;
-        letter-spacing: 2.5px;
-        align-self: start;
-        justify-self: center;
-    }
-
-    .move {
-        justify-self: center;
-
-        &>div:nth-of-type(2) {
-            transform: translateY(-100%);
-        }
-
-        &>div:nth-of-type(3) {
-            transform: translateY(-200%);
-        }
-    }
-
-
-    .paper {
-        opacity: 0;
-        @include mix-circle($gradient:$Paper-Gradient, $bcs:320px, $scs:235px, $svgs:scale(1.9), $bcbs:-15px, $scbs:15px);
-    }
-
-    .scissors {
-        opacity: 0;
-        @include mix-circle($gradient:$Scissors-Gradient, $bcs:320px, $scs:235px, $svgs:scale(1.9), $bcbs:-15px, $scbs:15px);
-    }
-
-    .rock {
-        opacity: 0;
-        @include mix-circle($gradient:$Rock-Gradient, $bcs:320px, $scs:235px, $svgs:scale(1.9), $bcbs:-15px, $scbs:15px);
-    }
 }
-
-
 
 .rules-block {
     z-index: 1;
@@ -369,20 +300,144 @@ body {
     margin: 0 35px 35px 0;
 }
 
+.winner {
+    box-shadow: inset 0px -15px 0px rgba(0, 0, 0, 0.15),
+        1px 1px 0px 70px rgba(255, 255, 255, 0.075),
+        1px 1px 0px 145px rgba(255, 255, 255, 0.05),
+        1px 1px 0px 235px rgba(255, 255, 255, 0.025) !important;
+}
+
+.attribution {
+    position: fixed;
+    margin: 5px;
+    bottom: 0;
+    font-size: 12px;
+}
+
+.attribution a {
+    color: hsl(349, 87%, 65%);
+}
+
+@media screen and (max-width:600px) {
+
+    .header-block {
+        width: 80vw;
+        max-width: 370px;
+        margin: auto;
+        margin-top: 3rem;
+        border-radius: 10px;
+        padding: 14px;
+
+        &>div:first-of-type {
+            font-size: 18px;
+            line-height: 18px;
+        }
+
+        &>div:last-of-type {
+            width: 95px;
+            padding: 10px 0px;
+            border-radius: 5px;
+
+            &>span:last-of-type {
+                font-size: 35px;
+                line-height: 30px;
+            }
+        }
+    }
+
+    .select-move {
+        width: 90vw;
+        max-width: 370px;
+        height: 330px;
 
 
+        .paper {
+            @include mix-circle($gradient:$Paper-Gradient, $bcs:160px, $scs:115px, $svgs:scale(1.15), $bcbs:-5px, $scbs:5px);
+        }
+
+        .scissors {
+            @include mix-circle($gradient:$Scissors-Gradient, $bcs:160px, $scs:115px, $svgs:scale(1.15), $bcbs:-5px, $scbs:5px);
+        }
+
+        .rock {
+            @include mix-circle($gradient:$Rock-Gradient, $bcs:160px, $scs:115px, $svgs:scale(1.15), $bcbs:-5px, $scbs:5px);
+        }
+
+        .triangle {
+            width: 240px;
+            height: 160px;
+        }
 
 
+    }
 
+    .game-block-result {
+        width: 90vw;
+        max-width: 370px;
+        height: 205px;
 
-// .rock {
-//     @include mix-circle($gradient:$Rock-Gradient, $bcs:19rem, $scs:14rem, $svgs:scale(2), $bcbs:-.9rem, $scbs:.7rem);
-// }
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 155px 50px 230px;
+        grid-template-areas: "usermove housemove""usertxt housetxt""result result";
 
-// .paper {
-//     @include mix-circle($gradient:$Paper-Gradient, $bcs:19rem, $scs:14rem, $svgs:scale(2), $bcbs:-.9rem, $scbs:.7rem);
-// }
+        .result {
+            place-self: end center;
+        }
 
-// .scissors {
-//     @include mix-circle($gradient:$Scissors-Gradient, $bcs:19rem, $scs:14rem, $svgs:scale(2), $bcbs:-.9rem, $scbs:.7rem);
-// }
+        .userm {
+            width: 100%;
+
+            &>div {
+                float: left;
+            }
+        }
+
+        .housem {
+            width: 100%;
+
+            &>div {
+                float: right;
+            }
+        }
+
+        .text {
+            font-size: 16px;
+            align-self: end;
+        }
+
+        .paper {
+            @include mix-circle($gradient:$Paper-Gradient, $bcs:155px, $scs:115px, $svgs:scale(1.15), $bcbs:-5px, $scbs:5px);
+        }
+
+        .scissors {
+            @include mix-circle($gradient:$Scissors-Gradient, $bcs:155px, $scs:115px, $svgs:scale(1.15), $bcbs:-5px, $scbs:5px);
+        }
+
+        .rock {
+            @include mix-circle($gradient:$Rock-Gradient, $bcs:155px, $scs:115px, $svgs:scale(1.15), $bcbs:-5px, $scbs:5px);
+        }
+    }
+
+    .winner {
+        box-shadow: inset 0px -5px 0px rgba(0, 0, 0, 0.15),
+            1px 1px 0px 20px rgba(255, 255, 255, 0.075),
+            1px 1px 0px 50px rgba(255, 255, 255, 0.05),
+            1px 1px 0px 90px rgba(255, 255, 255, 0.025) !important;
+    }
+
+    .rules-btn {
+        right: 50%;
+        transform: translateX(50%);
+        margin: 0 0 65px 0;
+    }
+
+    .attribution {
+        width: 80vw;
+        text-align: center;
+        margin: 0;
+        right: 50%;
+        transform: translateX(50%);
+        font-size: 12px;
+    }
+
+}

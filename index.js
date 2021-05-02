@@ -35,6 +35,15 @@ const userPicked = (up) => {
     result_change(gb);//make result block visiable
 
     const result = winnerPicker(up, hp);//calculate result
+    if (result === "you win") {
+        console.log("hi");
+        us.classList.add("winner");
+    }
+    if (result === "you lose") {
+        console.log("bye");
+        hs.classList.add("winner");
+    }
+
     rt.innerHTML = result;//inserting result value in result span in html
     score < 0 ? score = 0 : score;
     s.innerHTML = score;
@@ -44,6 +53,7 @@ const result_change = (gb) => {
     //seting game-block from 3 col to 2 col to display result
     gb.classList.add("game-block-result");
     gb.classList.remove("game-block");
+
 };
 
 const housePicked = () => {
@@ -56,6 +66,8 @@ const housePicked = () => {
 const playAgain = () => {
 
     //reseting house and user selctions
+
+    //inline-style
     document.getElementById("house-rock").removeAttribute("style");
     document.getElementById("user-rock").removeAttribute("style");
 
@@ -65,9 +77,20 @@ const playAgain = () => {
     document.getElementById("house-scissors").removeAttribute("style");
     document.getElementById("user-scissors").removeAttribute("style");
 
+    //css file style
+    document.getElementById("house-rock").classList.remove("winner");
+    document.getElementById("user-rock").classList.remove("winner");
+
+    document.getElementById("house-paper").classList.remove("winner");
+    document.getElementById("user-paper").classList.remove("winner");
+
+    document.getElementById("house-scissors").classList.remove("winner");
+    document.getElementById("user-scissors").classList.remove("winner");
+
     //reseting result and making move-selection visiable
     document.getElementById("result-text").removeAttribute("style");
     document.getElementById("move-selection").removeAttribute("style");
+
 
     //reseting game-block from 3 col to 2 col to hide result
     const gb = document.getElementById("game-block");
