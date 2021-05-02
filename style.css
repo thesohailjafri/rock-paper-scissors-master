@@ -46,6 +46,7 @@ body {
 
 .header-block > div:last-of-type {
   width: 155px;
+  padding: 20px;
   background-color: White;
   display: -webkit-box;
   display: -ms-flexbox;
