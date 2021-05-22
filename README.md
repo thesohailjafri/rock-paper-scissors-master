@@ -16,7 +16,7 @@
 
 ### Mobile
 
-![image](https://user-images.githubusercontent.com/66732877/119222342-89764600-bb11-11eb-9cca-d63d1e4a50e3.png)![image](https://user-images.githubusercontent.com/66732877/119222345-8e3afa00-bb11-11eb-878e-d6a835101e61.png)![image](https://user-images.githubusercontent.com/66732877/119222349-95620800-bb11-11eb-971a-5108deeb75d3.png)
+ <img src="https://user-images.githubusercontent.com/66732877/119222342-89764600-bb11-11eb-9cca-d63d1e4a50e3.png" width="33%" height="33%">   <img src="https://user-images.githubusercontent.com/66732877/119222345-8e3afa00-bb11-11eb-878e-d6a835101e61.png" width="33%" height="33%">    <img src="https://user-images.githubusercontent.com/66732877/119222349-95620800-bb11-11eb-971a-5108deeb75d3.png" width="33%" height="33%">
 
 **Users should be able to:**
 
