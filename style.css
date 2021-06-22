@@ -490,7 +490,7 @@ body {
 }
 
 .attribution {
-  position: fixed;
+  //position: fixed;
   margin: 5px;
   bottom: 0;
   font-size: 12px;
