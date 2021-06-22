@@ -1,7 +1,7 @@
 :root {
   text-transform: uppercase;
   color: white;
-  overflow: hidden;
+  overflow: none;
 }
 
 body {
@@ -218,7 +218,8 @@ body {
       grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 100px 320px;
       grid-template-rows: 100px 320px;
-      grid-template-areas: "usertxt . housetxt" "usermove result housemove";
+      grid-template-areas: "usertxt . housetxt"
+ "usermove result housemove";
 }
 
 .game-block-result .result {
